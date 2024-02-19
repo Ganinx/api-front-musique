@@ -1,0 +1,31 @@
+<h1>Mes musiques</h1>
+<div class="ligne" *ngIf="isLoading">
+  <div style="margin: auto; margin-bottom: 0">
+    <p>chargement des musiques...</p>
+    <mat-spinner style="margin: auto"></mat-spinner>
+  </div>
+</div>
+
+<div class="ligne">
+
+
+<div *ngFor="let music of musics">
+
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <img src="{{music.cover}}" mat-card-avatar class="example-header-image">
+    <mat-card-title>{{music.name}}</mat-card-title>
+    <mat-card-subtitle class="singer">{{music.singer}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{music.cover}}" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Voir la musique</button>
+  </mat-card-actions>
+</mat-card>
+
+</div>
+</div>
+
