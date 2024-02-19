@@ -1,10 +1,21 @@
 <p>
   <mat-toolbar color="primary">
-    <button (click)="toggleCollapse()" cButton mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button class="menu" (click)="toggleCollapse()" cButton mat-icon-button class="example-icon dropdown-menu" aria-label="Example icon-button with menu icon">
       <mat-icon>menu</mat-icon>
     </button>
-    <div [hidden]="visible" cCollapse>
-        <p style="position: absolute; ">je suis la</p>
+    <div class="menu-dropdown" [hidden]="visible" cCollapse>
+      <span class="list-dropdown"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5 12h14"></path>
+      </svg><a [routerLink]="['']">Mes musiques</a></span>
+      <span class="list-dropdown"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5 12h14"></path>
+      </svg><a [routerLink]="['']">Mes musiques</a></span>
+      <span class="list-dropdown"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5 12h14"></path>
+      </svg><a [routerLink]="['']">Mes musiques</a></span>
+      <span class="list-dropdown"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5 12h14"></path>
+      </svg><a [routerLink]="['']">Mes musiques</a></span>
     </div>
     <span>Musique de ouf</span>
     <span class="example-spacer"></span>
