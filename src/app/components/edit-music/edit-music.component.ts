@@ -39,18 +39,19 @@ export class EditMusicComponent {
 
   constructor(private musicService: MusicService, private router: Router,private snackBar: MatSnackBar
     ,private activatedRoute: ActivatedRoute) {
+    this.isLoading = true
     let id = parseInt(<string>this.activatedRoute.snapshot.paramMap.get('id'))
     this.musicService.getOne(id).subscribe(data =>{
+      this.isLoading = false
       this.music = data;
     })
   }
 
   OnEdit(music:Music):void{{
+    this.isLoading = true
     this.musicService.edit(music).subscribe(data=>{
-        console.log(data);
-        this.isLoading = true
         this.router.navigate(['']);
-        this.snackBar.open(this.music?.name + ' modifer' ,'fermer',{
+        this.snackBar.open(this.music?.name + ' modifier' ,'fermer',{
           duration: 3000,
         })
       }

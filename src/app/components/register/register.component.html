@@ -1,0 +1,63 @@
+<mat-card>
+  <mat-card-title class="my-3">Connexion</mat-card-title>
+  <mat-card-content>
+    <form #registerForm="ngForm" (submit)="submit()">
+      <p>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input name="email" #email="ngModel" [(ngModel)] ="user.email" type="email" matInput placeholder="Email" required >
+          <mat-error *ngIf="!email.valid">
+            Veuillez saisir un email
+          </mat-error>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <mat-label>Nom</mat-label>
+          <input name="lastname"  #lastname = "ngModel" [(ngModel)] ="user.lastname" type="text" matInput placeholder="Nom" required >
+          <mat-error *ngIf="!lastname.valid">
+            Veuillez saisir un nom de famille
+          </mat-error>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <mat-label>Prenom</mat-label>
+          <input name="firstname" #firstname = "ngModel" [(ngModel)] ="user.firstname" type="text" matInput placeholder="Prenom" required >
+          <mat-error *ngIf="!firstname.valid">
+            Veuillez saisir un prénom
+          </mat-error>
+        </mat-form-field>
+      </p>
+
+
+
+        <mat-form-field class="mb-5">
+          <mat-label>Password</mat-label>
+          <input name="password" #password = "ngModel" [(ngModel)] ="user.password" type="password" matInput placeholder="Password" required >
+          <mat-error *ngIf="!password.valid">
+            Veuillez saisir un mot de passe
+          </mat-error>
+        </mat-form-field>
+
+
+      <div *ngIf="error">
+        {{error}}
+      </div>
+
+      <div class="d-flex">
+      <div>
+        <button [disabled]="!registerForm.valid" type="submit" mat-raised-button color="primary" class="me-1" >Login</button>
+      </div>
+      <div class="d-block">
+        <button [routerLink]="['/login']" mat-raised-button color="warn" class="ms-1" >J'ai déjà un compte</button>
+      </div>
+      </div>
+
+    </form>
+
+  </mat-card-content>
+</mat-card>
+

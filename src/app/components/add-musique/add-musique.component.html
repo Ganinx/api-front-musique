@@ -8,7 +8,7 @@
   </div>
 </div>
 
-<div class="container justify-content-center ">
+<div *ngIf="!isLoading" class="container justify-content-center ">
   <form (ngSubmit)="submitForm(music)" #formMusique = "ngForm" class="example-form d-flex flex-column">
     <mat-form-field class="example-full-width">
       <mat-label>Nom</mat-label>
@@ -47,7 +47,7 @@
       <mat-error *ngIf="!music.style">rentrer un style de musique</mat-error>
     </mat-form-field>
 
-    <input [disabled]="!formMusique.valid" type="submit"  class="btn btn-success">
+    <button mat-raised-button color="primary" [disabled]="!formMusique.valid" type="submit" >Creer</button>
   </form>
 </div>
 
