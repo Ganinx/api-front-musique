@@ -1,0 +1,29 @@
+<button class="back" [routerLink]="['']" mat-raised-button color="primary">retour</button>
+
+<div class="ligne" *ngIf="isLoading">
+  <div style="margin: auto; margin-bottom: 0">
+    <p>chargement des musiques...</p>
+    <mat-spinner style="margin: auto"></mat-spinner>
+  </div>
+</div>
+
+<div *ngIf="!isLoading" class="ligne-detail">
+    <h1>{{music?.name}}</h1>
+
+  <h2>{{music?.singer}}</h2>
+</div>
+<div *ngIf="!isLoading" class="ligne-detail">
+<mat-card class="example-card position-relative z-0 detail-card">
+  <span class="badge z-1">{{music?.style}}</span><img mat-card-image src="{{music?.cover}}" alt="Photo of a Shiba Inu">
+</mat-card>
+  <iframe width="665" height="374" [src]="music?.url" title="{{music?.singer}} - {{music?.name}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <div class="d-flex my-3">
+    <button class="mx-2" mat-fab color="primary" *ngIf="music" (click)="deleteMusicModal('200ms', '200ms')" style="margin-top: 20px"><mat-icon>delete</mat-icon></button>
+    <button class="mx-2" mat-fab color="accent"  *ngIf="music" [routerLink]="['/edit',music.id]" style="margin-top: 20px"><svg width="24" height="24" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+    </svg></button>
+  </div>
+
+</div>
+
+

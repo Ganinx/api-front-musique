@@ -1,0 +1,55 @@
+<h1 *ngIf="music">Modifier {{music.name}}</h1>
+<button class="back" [routerLink]="['']" mat-raised-button color="primary">retour</button>
+
+<div class="ligne" *ngIf="isLoading">
+  <div style="margin: auto; margin-bottom: 0">
+    <p>chargement des musiques...</p>
+    <mat-spinner style="margin: auto"></mat-spinner>
+  </div>
+</div>
+
+
+<div class="container justify-content-center ">
+  <form *ngIf="music" (ngSubmit)="OnEdit(music)" #formMusique = "ngForm" class="example-form d-flex flex-column">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nom</mat-label>
+      <input #name='ngModel' name="name" [(ngModel)]="music.name" type="text" matInput
+             placeholder="nom de la musique" required>
+      <mat-error *ngIf="!name.valid">rentrer un nom de musique</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Chanteur</mat-label>
+      <input #singer='ngModel' name="singer" [(ngModel)]="music.singer" type="text" matInput
+             placeholder="Nom du chanteur" required>
+      <mat-error *ngIf="!singer.valid">rentrer un nom de chanteur</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Url youtube</mat-label>
+      <input #url='ngModel' name="url" [(ngModel)]="music.url" type="text" matInput
+             placeholder="Url youtube" required>
+      <mat-error *ngIf="!url.valid">rentrer un url youtube</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Cover</mat-label>
+      <input #cover='ngModel' name="cover" [(ngModel)]="music.cover" type="text" matInput
+             placeholder="Cover de la musique" required>
+      <mat-error *ngIf="!cover.valid">rentrer une cover</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Style</mat-label>
+      <mat-select #style='ngModel' name="style" [(ngModel)]="music.style" required>
+        <mat-option [value]="style" *ngFor="let style of styles">{{style}} </mat-option>
+      </mat-select>
+      <mat-error *ngIf="!music?.style">rentrer un style de musique</mat-error>
+    </mat-form-field>
+
+    <input [disabled]="!formMusique.valid" type="submit"  class="btn btn-success">
+  </form>
+</div>
+
+
