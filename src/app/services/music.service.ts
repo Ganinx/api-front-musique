@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environnement} from "../environnement/environnement";
-import {catchError, Observable, retry, throwError} from "rxjs";
+import {catchError, count, Observable, retry, throwError} from "rxjs";
 import {Music} from "../models/music";
 
 @Injectable({
@@ -17,6 +17,33 @@ export class MusicService {
 
   getAll():Observable<Music[]>{
     return this.httpClient.get<Music[]>(this.apiUrl).pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    )
+  }
+
+  getOne(id:number):Observable<Music>{
+    return this.httpClient.get<Music>(this.apiUrl+'/'+id).pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    )
+  }
+
+  edit(music:Music):Observable<Music>{
+    return this.httpClient.put(this.apiUrl + '/'+ music.id,music).pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    )
+  }
+
+  add(music:Music):Observable<Music>{
+    return this.httpClient.post<Music>(this.apiUrl,music).pipe(
+      retry(1),
+      catchError(this.errorHandler)
+    )
+  }
+  delete(music:Music): Observable<Music>{
+    return this.httpClient.delete(this.apiUrl+'/'+ music.id).pipe(
       retry(1),
       catchError(this.errorHandler)
     )

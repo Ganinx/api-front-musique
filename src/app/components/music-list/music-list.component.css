@@ -1,7 +1,4 @@
-.example-card {
-  max-width: 400px;
-  background-color: #ff006e;
-}
+
 
 .singer{
   color: black;
@@ -9,17 +6,18 @@
 h1{
   text-align: center;
   margin: 30px;
+  font-size: 3rem;
 }
 
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
-}
-.ligne{
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  max-width: 1300px;
-  margin: auto;
 
+
+
+*{
+  font-family: "Barlow", sans-serif!important;
 }
+.btn-detail:hover{
+  background-color: #ea3c86;
+  transition: ease-in-out 0.3s;
+  font-size: 1.1rem;
+}
+

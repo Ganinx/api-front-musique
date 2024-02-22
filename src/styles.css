@@ -2,3 +2,29 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.ligne{
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.ajouter{
+  margin-bottom: 20px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.example-card {
+  max-width: 400px;
+  background-color: #ff006e!important;
+}
+.back{
+  margin: 25px;
+  padding: 25px 35px!important;
+}
+

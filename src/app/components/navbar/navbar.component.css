@@ -5,6 +5,7 @@
   top: 65px;
   left: 0;
   padding: 5px;
+  z-index:10;
 }
 .menu-dropdown a {
   font-size: 1rem;
@@ -13,8 +14,18 @@
   display: block;
   padding: 10px 5px;
 }
-.menu-dropdown a:hover{
+.menu-dropdown a:hover::after{
   color: #1e2f7d;
+  width: 100%;
+}
+.menu-dropdown a::after{
+  display: block;
+  background-color: white;
+  color:white;
+  content: '';
+  width: 0;
+  height: 3px;
+  transition: ease-in-out 0.4s;
 }
 .menu{
   position: relative;
