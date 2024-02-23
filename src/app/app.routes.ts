@@ -5,12 +5,13 @@ import {AddMusiqueComponent} from "./components/add-musique/add-musique.componen
 import {EditMusicComponent} from "./components/edit-music/edit-music.component";
 import {RegisterComponent} from "./components/register/register.component";
 import {LoginComponent} from "./components/login/login.component";
+import {authGuard} from "./guards/auth.guard";
 
 export const routes: Routes = [
-  {path: '', component:MusicListComponent},
-  {path: 'music/:id', component:MusicDetailComponent},
-  {path: 'add', component:AddMusiqueComponent},
-  {path: 'edit/:id', component:EditMusicComponent},
+  {path: '', component:MusicListComponent, canActivate: [authGuard]},
+  {path: 'music/:id', component:MusicDetailComponent, canActivate: [authGuard]},
+  {path: 'add', component:AddMusiqueComponent, canActivate: [authGuard]},
+  {path: 'edit/:id', component:EditMusicComponent, canActivate: [authGuard]},
   {path: 'register', component:RegisterComponent},
   {path: 'login', component:LoginComponent}
 ];

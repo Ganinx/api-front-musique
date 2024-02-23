@@ -8,6 +8,7 @@ import {Router, RouterLink} from "@angular/router";
 import {User} from "../../models/user";
 import {NgIf} from "@angular/common";
 import {UserService} from "../../services/user.service";
+import {MatProgressSpinner} from "@angular/material/progress-spinner";
 
 @Component({
   selector: 'app-register',
@@ -22,7 +23,7 @@ import {UserService} from "../../services/user.service";
     MatLabel,
     ReactiveFormsModule,
     RouterLink,
-    NgIf,FormsModule
+    NgIf, FormsModule, MatProgressSpinner
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'

@@ -15,7 +15,7 @@
       </svg><a [routerLink]="['/register']">Creer un compte</a></span>
       <span class="list-dropdown"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path d="M5 12h14"></path>
-      </svg><a [routerLink]="['']">Mes musiques</a></span>
+      </svg><a (click)="logOut()">Se déconnecter</a></span>
     </div>
     <span>Musique de ouf</span>
     <span class="example-spacer"></span>

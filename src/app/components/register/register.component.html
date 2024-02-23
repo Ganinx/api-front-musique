@@ -1,5 +1,14 @@
-<mat-card>
-  <mat-card-title class="my-3">Connexion</mat-card-title>
+
+<div class="ligne" *ngIf="isLoading">
+  <div style="margin: auto; margin-bottom: 0">
+    <p>chargement...</p>
+    <mat-spinner style="margin: auto"></mat-spinner>
+  </div>
+</div>
+
+
+<mat-card *ngIf="!isLoading">
+  <mat-card-title class="my-3">S'inscrire</mat-card-title>
   <mat-card-content>
     <form #registerForm="ngForm" (submit)="submit()">
       <p>
@@ -34,7 +43,7 @@
 
 
 
-        <mat-form-field class="mb-5">
+        <mat-form-field class="mb-2">
           <mat-label>Password</mat-label>
           <input name="password" #password = "ngModel" [(ngModel)] ="user.password" type="password" matInput placeholder="Password" required >
           <mat-error *ngIf="!password.valid">
@@ -43,17 +52,17 @@
         </mat-form-field>
 
 
-      <div *ngIf="error">
+      <mat-error class="mb-3" *ngIf="error">
         {{error}}
-      </div>
+      </mat-error>
 
       <div class="d-flex">
-      <div>
-        <button [disabled]="!registerForm.valid" type="submit" mat-raised-button color="primary" class="me-1" >Login</button>
-      </div>
       <div class="d-block">
-        <button [routerLink]="['/login']" mat-raised-button color="warn" class="ms-1" >J'ai déjà un compte</button>
+        <button [routerLink]="['/login']" mat-raised-button color="warn" class="me-1" >J'ai déjà un compte</button>
       </div>
+        <div>
+          <button [disabled]="!registerForm.valid" type="submit" mat-raised-button color="primary" class="ms-1" >Se connecter</button>
+        </div>
       </div>
 
     </form>
